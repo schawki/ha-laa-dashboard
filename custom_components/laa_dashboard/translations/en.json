@@ -1,0 +1,6 @@
+{
+  "config": {
+    "step": { "user": { "title": "LAA Dashboard", "description": "Set up LAA Dashboard. Profiles are edited afterwards, in the LAA Dashboard panel of the sidebar (administrators only)." } },
+    "abort": { "single_instance_allowed": "LAA Dashboard is already set up." }
+  }
+}

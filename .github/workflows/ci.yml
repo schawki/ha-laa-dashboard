@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install Home Assistant test tooling
+        run: |
+          pip install pytest-homeassistant-custom-component
+          pip install --no-deps home-assistant-frontend
+      - name: Tests
+        run: python -m pytest tests -q
+
+  hacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hacs/action@main
+        with:
+          category: integration
+
+  hassfest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: home-assistant/actions/hassfest@master
+
+  panel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build the panel and check the committed bundle is up to date
+        working-directory: panel
+        run: |
+          npm ci
+          npx tsc --noEmit
+          npm run build
+          git diff --exit-code -- ../custom_components/laa_dashboard/frontend

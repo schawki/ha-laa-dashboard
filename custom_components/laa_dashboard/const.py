@@ -1,0 +1,12 @@
+"""Constants of LAA Dashboard (Location & Activity Aware Dashboard)."""
+DOMAIN = "laa_dashboard"
+OPT_PROFILES = "profiles"
+OPT_DEFAULT_PROFILE = "default_profile_id"
+OPT_REDIRECT = "redirect_non_admins"
+OPT_DASHBOARD_PATH = "dashboard_path"
+DEFAULT_DASHBOARD_PATH = "maison"
+DEFAULT_DENY_DOMAINS = ["camera"]       # cameras are hidden from non-administrators unless a profile says otherwise
+PANEL_PATH = "laa-dashboard"
+PANEL_URL = "/laa_dashboard_static"
+PANEL_FILE = "laa-dashboard-panel.js"
+GLOBAL_FILE = "laa-dashboard.js"

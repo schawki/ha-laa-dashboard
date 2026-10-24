@@ -1,0 +1,12 @@
+{
+  "domain": "laa_dashboard",
+  "name": "LAA Dashboard",
+  "codeowners": ["@schawki"],
+  "config_flow": true,
+  "dependencies": ["frontend", "http", "panel_custom", "websocket_api"],
+  "documentation": "https://github.com/schawki/ha-laa-dashboard",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/schawki/ha-laa-dashboard/issues",
+  "version": "0.1.0"
+}
